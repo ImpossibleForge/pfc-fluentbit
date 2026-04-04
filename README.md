@@ -118,7 +118,10 @@ For production workloads > 5 GB/day: [impossibleforge@gmail.com](mailto:impossib
 
 The `.pfc.bidx` index enables fast time-range queries without reading entire files:
 
+> **Status:** DuckDB extension pending review ([PR #1679](https://github.com/duckdb/community-extensions/pull/1679)). Once merged:
+
 ```sql
+-- Once available in DuckDB community extensions:
 INSTALL pfc FROM community;
 LOAD pfc;
 LOAD json;
