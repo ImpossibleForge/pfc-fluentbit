@@ -1,0 +1,33 @@
+# Docker Compose example: Fluent Bit + PFC Forwarder
+# Collects logs from all containers and compresses them to .pfc archives.
+
+version: "3.8"
+
+services:
+  pfc-forwarder:
+    image: python:3.11-slim
+    command: >
+      python3 /app/pfc_forwarder.py
+        --port 5170
+        --output-dir /var/log/pfc
+        --buffer-mb 32
+        --rotate-secs 3600
+    volumes:
+      - ./pfc_forwarder.py:/app/pfc_forwarder.py:ro
+      - /usr/local/bin/pfc_jsonl:/usr/local/bin/pfc_jsonl:ro
+      - pfc-archives:/var/log/pfc
+    ports:
+      - "5170:5170"
+    restart: unless-stopped
+
+  fluent-bit:
+    image: fluent/fluent-bit:3.2
+    volumes:
+      - ./examples/fluent-bit.conf:/fluent-bit/etc/fluent-bit.conf:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+    depends_on:
+      - pfc-forwarder
+    restart: unless-stopped
+
+volumes:
+  pfc-archives:
