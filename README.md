@@ -53,7 +53,8 @@ curl -L https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pf
      -o /usr/local/bin/pfc_jsonl && chmod +x /usr/local/bin/pfc_jsonl
 ```
 
-> **macOS:** coming soon — contact **impossibleforge@gmail.com** for early access.
+> **macOS:** Binary coming soon — contact **impossibleforge@gmail.com** for early access.
+> **Windows:** No native binary. Use WSL2 or a Linux machine.
 
 ### Step 2 — Start the forwarder
 
