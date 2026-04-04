@@ -1,6 +1,6 @@
 # pfc-fluentbit — PFC-JSONL Output for Fluent Bit
 
-Stream logs from Fluent Bit directly to compressed `.pfc` archives — **26–34% smaller than gzip/zstd**, with block-level random access for fast queries.
+Stream logs from Fluent Bit directly to compressed `.pfc` archives — **25–37% smaller than gzip/zstd**, with block-level random access for fast queries.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Fluent Bit](https://img.shields.io/badge/Fluent%20Bit-3.x-green.svg)](https://fluentbit.io)
