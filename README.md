@@ -1,6 +1,6 @@
 # pfc-fluentbit — PFC-JSONL Output for Fluent Bit
 
-Stream logs from Fluent Bit directly to compressed `.pfc` archives — **30% smaller than gzip**, with block-level random access for fast queries.
+Stream logs from Fluent Bit directly to compressed `.pfc` archives — **26–34% smaller than gzip/zstd**, with block-level random access for fast queries.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Fluent Bit](https://img.shields.io/badge/Fluent%20Bit-3.x-green.svg)](https://fluentbit.io)
@@ -109,6 +109,7 @@ The `pfc_jsonl` binary includes a built-in free tier — **no account, no signup
 | Phone home | never | never |
 
 Usage is tracked locally in `~/.pfc/usage.json`. Nothing leaves your machine.
+`compress` counts **input bytes**; `decompress`, `query`, `seek-blocks` count **decompressed output bytes**.
 
 For production workloads > 5 GB/day: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
 
@@ -163,6 +164,26 @@ Buffer size is too small — data compresses poorly at < 1 MB. Use the default `
 
 **`PFC Community Mode daily limit reached`**
 5 GB/day exceeded. Wait until midnight UTC or [get a license](mailto:impossibleforge@gmail.com).
+
+---
+
+## Python Integration
+
+Use the [pfc Python package](https://github.com/ImpossibleForge/pfc-py) to read or query `.pfc` archives from Python scripts:
+
+```bash
+pip install pfc-jsonl
+```
+
+```python
+import pfc
+
+# Query the archives written by pfc_forwarder
+pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
+          from_ts="2026-04-04T14:30:00",
+          to_ts="2026-04-04T14:45:00",
+          output_path="/tmp/15min.jsonl")
+```
 
 ---
 
