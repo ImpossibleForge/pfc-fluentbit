@@ -99,21 +99,6 @@ python3 pfc_forwarder.py \
 
 ---
 
-## Community Mode
-
-The `pfc_jsonl` binary includes a built-in free tier — **no account, no signup**:
-
-| | Community | Licensed |
-|-|-----------|----------|
-| Daily limit | 5 GB/day | Unlimited |
-| License key | not required | required |
-| Phone home | never | never |
-
-Usage is tracked locally in `~/.pfc/usage.json`. Nothing leaves your machine.
-`compress` counts **input bytes**; `decompress`, `query`, `seek-blocks` count **decompressed output bytes**.
-
-For production workloads > 5 GB/day: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
-
 ---
 
 ## Querying Archives with DuckDB
@@ -163,9 +148,6 @@ Another process is on that port. Use `--port 5171` or kill the old process.
 **Archives are bigger than input**
 Buffer size is too small — data compresses poorly at < 1 MB. Use the default `--buffer-mb 32` in production.
 
-**`PFC Community Mode daily limit reached`**
-5 GB/day exceeded. Wait until midnight UTC or [get a license](mailto:impossibleforge@gmail.com).
-
 ---
 
 ## Python Integration
@@ -192,8 +174,8 @@ pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
 
 **pfc-fluentbit** (this repository) is released under the **MIT License** — see [LICENSE](LICENSE).
 
-The **PFC-JSONL binary** (`pfc_jsonl`) is **proprietary software** — Community Mode provides 5 GB/day free.
-Commercial licenses: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
+The **PFC-JSONL binary** (`pfc_jsonl`) is proprietary software — free for personal and open-source use.
+Commercial use requires a license: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
 
 ---
 
