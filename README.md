@@ -16,7 +16,7 @@ Stream logs from Fluent Bit directly to compressed `.pfc` archives — **25–37
 | gzip | ~14.5% | Full file only | No |
 | zstd | ~16% | Full file only | No |
 
-**PFC-JSONL is 26–34% smaller than gzip on typical structured log data.**
+**PFC-JSONL is 25–37% smaller than gzip/zstd on typical structured log data.**
 Archives include a `.pfc.bidx` block index — query only the hours you need, not entire files.
 
 ---
