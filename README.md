@@ -4,7 +4,7 @@ Stream logs from Fluent Bit directly to compressed `.pfc` archives — **25–37
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Fluent Bit](https://img.shields.io/badge/Fluent%20Bit-3.x-green.svg)](https://fluentbit.io)
-[![Version](https://img.shields.io/badge/Version-1.0-orange.svg)]()
+[![Version](https://img.shields.io/badge/Version-1.0.1-orange.svg)]()
 
 ---
 
