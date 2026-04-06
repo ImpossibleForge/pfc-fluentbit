@@ -18,16 +18,15 @@ Requirements:
   - Python 3.8+ (standard library only, no pip installs)
   - pfc_jsonl binary >= v3.4  (https://github.com/ImpossibleForge/pfc-jsonl)
 
-Community Mode (built into pfc_jsonl binary):
-  - 5 GB/day free, no license key required
-  - Tracked locally in ~/.pfc/usage.json
-  - For > 5 GB/day: contact impossibleforge@gmail.com
+License:
+  Free for personal and open-source use.
+  Commercial use requires a license — https://github.com/ImpossibleForge/pfc-jsonl
 """
-import argparse, json, os, subprocess, threading, time
+import argparse, json, os, signal, subprocess, threading, time
 from datetime import datetime, timezone
 from socketserver import TCPServer, StreamRequestHandler
 
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 
 
 def parse_args():
@@ -145,7 +144,7 @@ class FluentBitHandler(StreamRequestHandler):
 
 def _timer_loop():
     while True:
-        time.sleep(10)
+        time.sleep(min(10, _buffer.cfg.rotate_secs))
         _buffer.tick()
 
 
@@ -173,8 +172,16 @@ def main():
     log(f"  Output dir  : {cfg.output_dir}")
     log(f"  Rotate at   : {cfg.buffer_mb} MB or {cfg.rotate_secs}s")
     log(f"  PFC binary  : {cfg.pfc_binary}")
-    log(f"  Community   : 5 GB/day free (tracked locally by pfc_jsonl)")
+    log(f"  License     : Free for personal/open-source use")
 
+    def _shutdown(signum=None, frame=None):
+        log("Shutting down - flushing buffer...")
+        _buffer.flush()
+        time.sleep(3)
+        log("Goodbye.")
+        raise SystemExit(0)
+
+    signal.signal(signal.SIGTERM, _shutdown)
     threading.Thread(target=_timer_loop, daemon=True).start()
 
     TCPServer.allow_reuse_address = True
