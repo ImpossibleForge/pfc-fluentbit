@@ -9,6 +9,9 @@ You're already using Fluent Bit to collect logs. But when you want to query them
 [![Version](https://img.shields.io/badge/Version-1.0.1-orange.svg)]()
 [![DuckDB](https://img.shields.io/badge/DuckDB-Community%20Extension-orange.svg)](https://github.com/ImpossibleForge/pfc-duckdb)
 
+> **Free for personal and open-source use** — no account, no signup, no daily limits.
+> Commercial use requires a license: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
+
 ---
 
 ## Why switch from gzip?
