@@ -1,23 +1,28 @@
 # pfc-fluentbit — PFC-JSONL Output for Fluent Bit
 
-Stream logs from Fluent Bit directly to compressed `.pfc` archives — **25–37% smaller than gzip/zstd**, with block-level random access for fast queries.
+You're already using Fluent Bit to collect logs. But when you want to query them later, you hit the wall: decompress everything first, or pay for Athena/BigQuery to do it for you.
+
+**pfc-fluentbit** routes Fluent Bit output into compressed `.pfc` archives that DuckDB can query directly — skipping only the blocks outside your time window, leaving everything else untouched on disk.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Fluent Bit](https://img.shields.io/badge/Fluent%20Bit-3.x-green.svg)](https://fluentbit.io)
 [![Version](https://img.shields.io/badge/Version-1.0.1-orange.svg)]()
+[![DuckDB](https://img.shields.io/badge/DuckDB-Community%20Extension-orange.svg)](https://github.com/ImpossibleForge/pfc-duckdb)
 
 ---
 
-## Why?
+## Why switch from gzip?
 
-| Tool | Compression | Random Access | Query in DuckDB |
-|------|-------------|---------------|-----------------|
-| **PFC-JSONL** | **~9%** | Block-level (`.bidx` index) | `read_pfc_jsonl()` |
-| gzip | ~12% | Full file only | No |
-| zstd | ~14% | Full file only | No |
+| | gzip / zstd | **PFC-JSONL** |
+|---|---|---|
+| Compression | ~12–14% | **~9%** (25–37% smaller) |
+| Query one hour from a 30-day archive | Decompress everything | **Decompress 1 block, skip 719** |
+| Query in DuckDB | ❌ Not possible | ✅ `read_pfc_jsonl()` |
+| Works with Fluent Bit | ✅ | ✅ (this repo) |
 
-**PFC-JSONL is 25–37% smaller than gzip/zstd on typical structured log data.**
-Archives include a `.pfc.bidx` block index — query only the hours you need, not entire files.
+A 30-day log archive compressed with gzip means downloading and decompressing the entire thing just to look at one hour of errors. PFC-JSONL stores a block index alongside every archive — DuckDB reads the index, skips irrelevant blocks, and decompresses only what you asked for.
+
+**The pipeline:**
 
 ---
 
@@ -105,10 +110,7 @@ python3 pfc_forwarder.py \
 
 The `.pfc.bidx` index enables fast time-range queries without reading entire files:
 
-> **Status:** DuckDB extension pending review ([PR #1679](https://github.com/duckdb/community-extensions/pull/1679)). Once merged:
-
 ```sql
--- Once available in DuckDB community extensions:
 INSTALL pfc FROM community;
 LOAD pfc;
 LOAD json;
