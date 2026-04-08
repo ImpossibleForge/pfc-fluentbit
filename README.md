@@ -4,7 +4,7 @@ You're already using Fluent Bit to collect logs. But when you want to query them
 
 **pfc-fluentbit** routes Fluent Bit output into compressed `.pfc` archives that DuckDB can query directly — skipping only the blocks outside your time window, leaving everything else untouched on disk.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/ImpossibleForge/pfc-fluentbit/blob/main/LICENSE)
 [![Fluent Bit](https://img.shields.io/badge/Fluent%20Bit-3.x-green.svg)](https://fluentbit.io)
 [![Version](https://img.shields.io/badge/Version-1.0.1-orange.svg)]()
 [![DuckDB](https://img.shields.io/badge/DuckDB-Community%20Extension-orange.svg)](https://github.com/ImpossibleForge/pfc-duckdb)
@@ -197,7 +197,7 @@ pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
 
 ## License
 
-**pfc-fluentbit** (this repository) is released under the **MIT License** — see [LICENSE](LICENSE).
+**pfc-fluentbit** (this repository) is released under the **MIT License** — see [LICENSE](https://github.com/ImpossibleForge/pfc-fluentbit/blob/main/LICENSE).
 
 The **PFC-JSONL binary** (`pfc_jsonl`) is proprietary software — free for personal and open-source use.
 Commercial use requires a license: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
