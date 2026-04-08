@@ -155,6 +155,26 @@ Buffer size is too small — data compresses poorly at < 1 MB. Use the default `
 
 ---
 
+## Migrate Existing Archives
+
+Already have years of logs compressed with gzip, zstd, or bzip2 — on disk, on S3, on Azure, or on GCS?
+
+**[pfc-migrate](https://github.com/ImpossibleForge/pfc-migrate)** converts them in one command, in-region (no egress charges):
+
+```bash
+pip install pfc-migrate[all]
+
+# Local directory
+pfc-migrate convert --dir /var/log/old-archive/ --output-dir /var/log/pfc/ -v
+
+# S3 bucket (converts in-region)
+pfc-migrate s3 --bucket my-logs --prefix 2025/ --out-bucket my-logs-pfc --out-prefix pfc/
+```
+
+After conversion, DuckDB can query them directly via the [`pfc` extension](https://github.com/ImpossibleForge/pfc-duckdb) — no decompression needed.
+
+---
+
 ## Python Integration
 
 Use the [pfc Python package](https://github.com/ImpossibleForge/pfc-py) to read or query `.pfc` archives from Python scripts:
