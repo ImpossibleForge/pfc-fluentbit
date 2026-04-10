@@ -10,7 +10,7 @@ You're already using Fluent Bit to collect logs. But when you want to query them
 [![DuckDB](https://img.shields.io/badge/DuckDB-Community%20Extension-orange.svg)](https://github.com/ImpossibleForge/pfc-duckdb)
 
 > **Free for personal and open-source use** — no account, no signup, no daily limits.
-> Commercial use requires a license: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
+> Commercial use requires a license: [info@impossibleforge.com](mailto:info@impossibleforge.com)
 
 ---
 
@@ -61,7 +61,7 @@ curl -L https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pf
      -o /usr/local/bin/pfc_jsonl && chmod +x /usr/local/bin/pfc_jsonl
 ```
 
-> **macOS:** Binary coming soon — contact **impossibleforge@gmail.com** for early access.
+> **macOS:** Binary coming soon — contact **info@impossibleforge.com** for early access.
 > **Windows:** No native binary. Use WSL2 or a Linux machine.
 
 ### Step 2 — Start the forwarder
@@ -200,7 +200,7 @@ pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
 **pfc-fluentbit** (this repository) is released under the **MIT License** — see [LICENSE](https://github.com/ImpossibleForge/pfc-fluentbit/blob/main/LICENSE).
 
 The **PFC-JSONL binary** (`pfc_jsonl`) is proprietary software — free for personal and open-source use.
-Commercial use requires a license: [impossibleforge@gmail.com](mailto:impossibleforge@gmail.com)
+Commercial use requires a license: [info@impossibleforge.com](mailto:info@impossibleforge.com)
 
 ---
 
