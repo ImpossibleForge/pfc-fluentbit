@@ -57,11 +57,16 @@ It receives JSON log records over TCP, buffers them, and calls the `pfc_jsonl` b
 ### Step 1 — Install pfc_jsonl binary
 
 ```bash
+# Linux x64:
 curl -L https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pfc_jsonl-linux-x64 \
+     -o /usr/local/bin/pfc_jsonl && chmod +x /usr/local/bin/pfc_jsonl
+
+# macOS (Apple Silicon M1–M4):
+curl -L https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pfc_jsonl-macos-arm64 \
      -o /usr/local/bin/pfc_jsonl && chmod +x /usr/local/bin/pfc_jsonl
 ```
 
-> **macOS (Apple Silicon M1/M2/M3/M4):** Use the ARM64 binary — see [pfc-jsonl releases](https://github.com/ImpossibleForge/pfc-jsonl/releases). macOS Intel (x64): coming soon.
+> **macOS Intel (x64):** Binary coming soon.
 > **Windows:** No native binary. Use WSL2 or a Linux machine.
 
 ### Step 2 — Start the forwarder
