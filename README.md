@@ -200,6 +200,18 @@ pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
 
 ---
 
+
+## Related repos
+
+- [pfc-jsonl](https://github.com/ImpossibleForge/pfc-jsonl) — core binary (compress/decompress/query)
+- [pfc-gateway](https://github.com/ImpossibleForge/pfc-gateway) — HTTP REST gateway — ingest + query, no DuckDB
+- [pfc-vector](https://github.com/ImpossibleForge/pfc-vector) — high-performance Rust ingest daemon for Vector.dev and Telegraf
+- [pfc-migrate](https://github.com/ImpossibleForge/pfc-migrate) — one-shot export and archive conversion
+- [pfc-py](https://github.com/ImpossibleForge/pfc-py) — Python client library for PFC
+- [pfc-duckdb](https://github.com/ImpossibleForge/pfc-duckdb) — DuckDB extension for SQL queries on PFC files
+
+---
+
 ## License
 
 **pfc-fluentbit** (this repository) is released under the **MIT License** — see [LICENSE](https://github.com/ImpossibleForge/pfc-fluentbit/blob/main/LICENSE).
