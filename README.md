@@ -209,6 +209,7 @@ pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
 - [pfc-migrate](https://github.com/ImpossibleForge/pfc-migrate) — one-shot export and archive conversion
 - [pfc-py](https://github.com/ImpossibleForge/pfc-py) — Python client library for PFC
 - [pfc-duckdb](https://github.com/ImpossibleForge/pfc-duckdb) — DuckDB extension for SQL queries on PFC files
+- [pfc-otel-collector](https://github.com/ImpossibleForge/pfc-otel-collector) — OpenTelemetry OTLP/HTTP log exporter
 
 ---
 
