@@ -214,6 +214,12 @@ pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
 
 ---
 
+
+---
+
+## Disclaimer
+
+PFC-FluentBit is an independent open-source project and is not affiliated with, endorsed by, or associated with the Fluent Bit project or the Cloud Native Computing Foundation (CNCF).
 ## License
 
 **pfc-fluentbit** (this repository) is released under the **MIT License** — see [LICENSE](https://github.com/ImpossibleForge/pfc-fluentbit/blob/main/LICENSE).
