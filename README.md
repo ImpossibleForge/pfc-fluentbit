@@ -201,18 +201,14 @@ pfc.query("/var/log/pfc/logs_20260404_1400.pfc",
 ---
 
 
-## Related repos
+## Part of the PFC Ecosystem
 
-- [pfc-jsonl](https://github.com/ImpossibleForge/pfc-jsonl) — core binary (compress/decompress/query)
-- [pfc-gateway](https://github.com/ImpossibleForge/pfc-gateway) — HTTP REST gateway — ingest + query, no DuckDB
-- [pfc-vector](https://github.com/ImpossibleForge/pfc-vector) — high-performance Rust ingest daemon for Vector.dev and Telegraf
-- [pfc-migrate](https://github.com/ImpossibleForge/pfc-migrate) — one-shot export and archive conversion
-- [pfc-py](https://github.com/ImpossibleForge/pfc-py) — Python client library for PFC
-- [pfc-duckdb](https://github.com/ImpossibleForge/pfc-duckdb) — DuckDB extension for SQL queries on PFC files
-- [pfc-otel-collector](https://github.com/ImpossibleForge/pfc-otel-collector) — OpenTelemetry OTLP/HTTP log exporter
-- [pfc-kafka-consumer](https://github.com/ImpossibleForge/pfc-kafka-consumer) — Kafka / Redpanda consumer → PFC
-- [pfc-telegraf](https://github.com/ImpossibleForge/pfc-telegraf) — Telegraf HTTP output plugin → PFC
-- [pfc-grafana](https://github.com/ImpossibleForge/pfc-grafana) — Grafana data source plugin for PFC archives
+**[→ View all PFC tools & integrations](https://github.com/ImpossibleForge/pfc-jsonl#ecosystem)**
+
+| Direct integration | Why |
+|---|---|
+| [pfc-gateway](https://github.com/ImpossibleForge/pfc-gateway) | Query the archives pfc-fluentbit creates — HTTP REST, no DuckDB required |
+| [pfc-migrate](https://github.com/ImpossibleForge/pfc-migrate) | Convert existing gzip/zstd archives to PFC before switching to live ingest |
 
 ---
 
