@@ -61,13 +61,18 @@ It receives JSON log records over TCP, buffers them, and calls the `pfc_jsonl` b
 curl -L https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pfc_jsonl-linux-x64 \
      -o /usr/local/bin/pfc_jsonl && chmod +x /usr/local/bin/pfc_jsonl
 
-# macOS (Apple Silicon M1–M4):
+# macOS Apple Silicon (M1–M4):
 curl -L https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pfc_jsonl-macos-arm64 \
      -o /usr/local/bin/pfc_jsonl && chmod +x /usr/local/bin/pfc_jsonl
-```
 
-> **macOS Intel (x64):** Binary coming soon.
-> **Windows:** No native binary. Use WSL2 or a Linux machine.
+# macOS Intel:
+curl -L https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pfc_jsonl-macos-x64 \
+     -o /usr/local/bin/pfc_jsonl && chmod +x /usr/local/bin/pfc_jsonl
+
+# Windows (PowerShell):
+Invoke-WebRequest https://github.com/ImpossibleForge/pfc-jsonl/releases/latest/download/pfc_jsonl-windows-x64.exe `
+  -OutFile "$env:LOCALAPPDATA\Microsoft\WindowsApps\pfc_jsonl.exe"
+```
 
 ### Step 2 — Start the forwarder
 
